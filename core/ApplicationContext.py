@@ -8,7 +8,7 @@ class ApplicationContext:
         self._application = QApplication(sys.argv)
         self._display: Display = Display(self._application)
 
-    def getDisplay(self):
+    def getDisplay(self) -> Display:
         return self._display
 
     def getApp(self) -> QApplication:

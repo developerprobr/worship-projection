@@ -1,13 +1,13 @@
 from core import ApplicationSession, ApplicationContext
 from core.devices import Display
 from core.exception import FactoryException
-from screens import ProjectionWindow
+from core.projection.Projector import Projector
 from PyQt6.QtGui import QScreen
 
 
 class ProjectionFactory:
     @staticmethod
-    def createProjection(display: QScreen) -> ProjectionWindow:
+    def createProjection(display: QScreen) -> Projector:
 
         if display is None:
             raise FactoryException('It\'s necessary to specify the display.')
@@ -19,7 +19,7 @@ class ProjectionFactory:
         selected_display = display in display_list
 
         if selected_display is not None:
-            window = ProjectionWindow(display)
+            window = Projector(display)
 
             return window
 
