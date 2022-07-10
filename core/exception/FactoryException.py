@@ -1,0 +1,4 @@
+
+
+class FactoryException(Exception):
+    pass
