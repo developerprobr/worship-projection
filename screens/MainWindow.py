@@ -10,10 +10,3 @@ class MainWindow(QMainWindow):
         button = QPushButton('Teste')
         self.setCentralWidget(button)
 
-        context = ApplicationSession.context()
-
-        for projector in context.getProjectors():
-            print('projector: ', projector.size())
-
-    def openProjection(self):
-        pass
