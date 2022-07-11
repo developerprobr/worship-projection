@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QLabel, QHBoxLayout
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QScreen
+from PyQt6.QtGui import QScreen, QFont
 
 
 class Projector(QWidget):
@@ -15,6 +15,7 @@ class Projector(QWidget):
 
         layout = QHBoxLayout()
         label = QLabel('Teste 01')
+        label.setFont(QFont('Arial', 72))
         layout.addWidget(label)
         self.setLayout(layout)
 

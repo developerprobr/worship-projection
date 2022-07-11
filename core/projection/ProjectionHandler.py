@@ -4,17 +4,22 @@ from core import Application
 
 
 class ProjectionHandler(Application.Application):  # TODO: It's necessary to fix it soon
-    def __init__(self):
+    def __init__(self, parent):
         super(ProjectionHandler, self).__init__()
 
-        self._projectors: [Projector] = []
+        self._parent = parent
+        self._parent.projectors = []
+        self.context.setProjectors(self._parent.projectors)
+        self._projectors = self._parent.projectors
 
-    def startAllProjectors(self, parent):
+    def createAllProjectors(self) -> [Projector]:
         monitors = self.context.getDisplay().getAvailableMonitorsForProjection()
 
         for monitor in monitors:
-            parent.projectors.append(ProjectionFactory.createProjection(monitor))
-            self._projectors = parent.projectors
+            self._projectors.append(ProjectionFactory.createProjection(monitor))
 
-            for projector in self._projectors:
-                projector.start()
+        return self._projectors
+
+    def startAllProjectors(self):
+        for projector in self._projectors:
+            projector.start()

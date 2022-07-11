@@ -1,4 +1,4 @@
 from .ApplicationContext import ApplicationContext
 from .ApplicationSession import ApplicationSession
-from .ApplicationInitializer import ApplicationInitializer
+from .Initializer import Initializer
 from .Application import Application

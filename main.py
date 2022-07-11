@@ -1,4 +1,4 @@
-from core import ApplicationInitializer
+from core import Initializer
 
 
-ApplicationInitializer.start()
+Initializer.start()
